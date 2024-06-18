@@ -1,15 +1,42 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Operations</title>
+    <title>Interactive Web Page</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #message {
+            display: none;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>JavaScript Operations</h1>
-    
-    <script src="script.js"></script>
+    <h1>Interactive Web Page</h1>
+    <input type="text" id="textInput" placeholder="Enter your name">
+    <button id="submitButton">Submit</button>
+    <p id="message"></p>
+
+    <script>
+        document.getElementById("submitButton").addEventListener("click", function() {
+            let inputText = document.getElementById("textInput").value;
+            if (inputText) {
+                let message = `Hello, ${inputText}! Welcome to the interactive web page.`;
+                document.getElementById("message").textContent = message;
+                document.getElementById("message").style.display = "block";
+            } else {
+                alert("Please enter your name.");
+            }
+        });
+    </script>
 </body>
 </html>
+
